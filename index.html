@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="form">
+        <div class="title">Fill Attendance</div>
+        
+        <div class="input-container ic1">
+          <input id="sname" class="input" type="text" placeholder=" " />
+          <div class="cut" style="width:90px"></div>
+          <label for="firstname" class="placeholder">Staff Name</label>
+        </div>
+        <div class="input-container ic2">
+          <input id="date" class="input" type="text" placeholder=" " />
+          <div class="cut"></div>
+          <label for="lastname" class="placeholder">Date</label>
+        </div>
+        <div class="input-container ic2">
+            <input id="sp" class="input" type="text" placeholder=" " />
+            <div class="cut" style="width: 90px;"></div>
+            <label for="lastname" class="placeholder">Specialization</label>
+          </div>
+          <div class="input-container ic2">
+            <input id="sec" class="input" type="text" placeholder=" " />
+            <div class="cut"></div>
+            <label for="lastname" class="placeholder">Section</label>
+          </div>
+          <div class="input-container ic2">
+            <input id="timing" class="input" type="text" placeholder=" " />
+            <div class="cut"></div>
+            <label for="lastname" class="placeholder">Timing</label>
+          </div>
+          <div class="input-container ic2">
+            <input id="year" class="input" type="text" placeholder=" " />
+            <div class="cut"></div>
+            <label for="lastname" class="placeholder">Year</label>
+          </div>
+        <div class="input-container ic2">
+            <input id="reg" class="input" type="text" placeholder=" " />
+            <div class="cut"></div>
+            <label for="lastname" class="placeholder">RegNo</label>
+          </div>
+          <div class="input-container ic2">
+            <input id="mail" class="input" type="text" placeholder=" " />
+            <div class="cut" style="width: 128px;"></div>
+            <label for="lastname" class="placeholder">Email to receive list</label>
+          </div>
+        
+        <button type="text" class="submit" id="post-btn">submit</button>
+      </div>
+    
+
+	<script> 
+    button = document.getElementById('post-btn');
+    
+   
+        button.addEventListener('click', async _ => {
+          try { 
+            var sname = document.getElementById("sname").value;
+    var date = document.getElementById("date").value;
+    var sp = document.getElementById("sp").value;
+    var sec = document.getElementById("sec").value;
+    var reg = document.getElementById("reg").value; 
+    var timing = document.getElementById("timing").value;
+    var year = document.getElementById("year").value;
+    var to=document.getElementById('mail').value; 
+    const jspl={
+        "sname":sname,
+        "date":date,
+        "sp":sp,
+        "sec":sec,
+        "reg":reg,
+        "timing":timing,
+        "year":year,
+        "to":to
+    }   
+            const response = await fetch('http://40731040.pythonanywhere.com/workpannu', {
+              method: 'POST',
+              body: JSON.stringify(jspl),
+              headers:{'Content-Type':'application/json'
+              }
+            });
+            console.log('Completed!');
+          } catch(err) {
+            console.error(`Error: ${err}`);
+          }
+        });
+        </script>
+        
+  </body>
+</html>
