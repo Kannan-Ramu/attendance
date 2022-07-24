@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div class="form">
+    <div class="form" id="form1">
         <div class="title">Fill Attendance</div>
         
         <div class="input-container ic1">
@@ -56,6 +56,10 @@
         
         <button type="text" class="submit" id="post-btn">submit</button>
       </div>
+      <div class="form" id="opmsg" style="display: none;margin-top: 0;">
+        <div class="title">Thanks For Filling ! <br>
+        Your response is sent to the mentioned mail id</div>
+      </div>
     
 
 	<script> 
@@ -89,6 +93,8 @@
               }
             });
             console.log('Completed!');
+            document.getElementById("form1").style.display="none";
+            document.getElementById("opmsg").style.display="block";
           } catch(err) {
             console.error(`Error: ${err}`);
           }
