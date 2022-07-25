@@ -68,6 +68,8 @@
    
         button.addEventListener('click', async _ => {
           try { 
+             document.getElementById("form1").style.display="none";
+            document.getElementById("opmsg").style.display="block";
             var sname = document.getElementById("sname").value;
     var date = document.getElementById("date").value;
     var sp = document.getElementById("sp").value;
@@ -93,8 +95,7 @@
               }
             });
             console.log('Completed!');
-            document.getElementById("form1").style.display="none";
-            document.getElementById("opmsg").style.display="block";
+            
           } catch(err) {
             console.error(`Error: ${err}`);
           }
